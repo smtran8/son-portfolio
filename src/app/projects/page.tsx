@@ -22,11 +22,11 @@ export default function ProjectsPage() {
       <h1 className="text-2xl font-semibold">Projects</h1>
       {/* Decorative image in the left gutter on desktop */}
       <Image
-        src="/projects-left.svg"
-        alt="Projects decorative"
+        src="/profile.jpg"
+        alt="Portrait of Son Tran"
         width={144}
         height={144}
-        className="hidden sm:block absolute left-0 -translate-x-[130%] md:-translate-x-[150%] top-0 rounded-2xl border border-gray-200"
+        className="hidden sm:block absolute left-0 -translate-x-[130%] md:-translate-x-[150%] top-0 rounded-full border border-gray-200"
         priority
       />
 
