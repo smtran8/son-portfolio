@@ -53,7 +53,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="space-y-3">
+      <section className="space-y-2">
         <h2 className="text-lg font-semibold">Contact</h2>
         <div className="flex flex-wrap gap-3 items-center">
           <Link href="https://github.com/smtran8" className="btn">GitHub</Link>
