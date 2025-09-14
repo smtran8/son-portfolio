@@ -1,13 +1,26 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
     <div className="space-y-8">
-      <header className="space-y-2">
-        <h1 className="text-2xl font-semibold">About</h1>
-        <p className="text-gray-700 max-w-2xl">
-          I’m a data-driven builder who enjoys turning messy real-world signals into clean systems and useful products. I’ve shipped analytics pipelines, LLM-powered reporting, forecasting tools, and UI that people actually use.
-        </p>
+      <header className="space-y-3">
+        <div className="flex items-start gap-4">
+          <Image
+            src="/profile.svg"
+            alt="Portrait of Son Tran"
+            width={96}
+            height={96}
+            className="rounded-full border border-gray-200"
+            priority
+          />
+          <div className="space-y-2">
+            <h1 className="text-2xl font-semibold">About</h1>
+            <p className="text-gray-700 max-w-2xl">
+              I’m a data-driven builder who enjoys turning messy real-world signals into clean systems and useful products. I’ve shipped analytics pipelines, LLM-powered reporting, forecasting tools, and UI that people actually use.
+            </p>
+          </div>
+        </div>
       </header>
 
       <section className="space-y-1">
