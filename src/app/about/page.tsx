@@ -10,7 +10,7 @@ export default function AboutPage() {
         </p>
       </header>
 
-      <section className="space-y-2">
+      <section className="space-y-1">
         <h2 className="text-lg font-semibold">Skills</h2>
         <div className="space-y-1 text-gray-800">
           <p><span className="font-medium">Languages:</span> Python, C/C++, SQL, R</p>
