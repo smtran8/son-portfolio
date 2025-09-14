@@ -12,7 +12,7 @@ export default function AboutPage() {
           alt="Portrait of Son Tran"
           width={112}
           height={112}
-          className="hidden sm:block absolute left-0 -translate-x-full top-0 rounded-full border border-gray-200"
+          className="hidden sm:block absolute left-0 -translate-x-[130%] md:-translate-x-[150%] top-0 rounded-full border border-gray-200"
           priority
         />
         {/* Mobile: show avatar inline above text */}
