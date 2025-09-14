@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
       "Socrata API",
     ],
     role: "Data/ML Engineer",
-    links: { repo: "" },
+    links: { repo: "https://github.com/smtran8/civicops-311-gainesville" },
     cover: "/images/projects/civicops-311-cover.png",
   },
   {
@@ -70,7 +70,7 @@ export const PROJECTS: Project[] = [
     ],
     stack: ["Python", "NumPy", "pandas", "JSON"],
     role: "Engineer",
-    links: { repo: "" },
+    links: { repo: "https://github.com/Lokaghna/MAD2502FinalProject" },
     cover: "/images/projects/smart-planner-cover.png",
   },
 ];
