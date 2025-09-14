@@ -15,12 +15,14 @@ export default function Home() {
         </p>
         <div className="flex flex-wrap gap-3 pt-2">
           <Link href="/projects" className="btn">Projects</Link>
-          <Link href="/about" className="btn bg-gray-900 hover:opacity-90">About</Link>
           <Link href="/contact" className="btn">Contact</Link>
         </div>
       </section>
 
-      <Section title="Featured Projects">
+      <Section
+        title="Featured Projects"
+        action={<Link href="/about" className="btn bg-gray-900 hover:opacity-90">About</Link>}
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {featured.map((p) => (
             <ProjectCard key={p.slug} project={p} />
