@@ -21,7 +21,7 @@ export default function Home() {
 
       <Section
         title="Featured Projects"
-        action={<Link href="/about" className="btn bg-gray-900 hover:opacity-90">About</Link>}
+        action={<Link href="/about" className="btn bg-gray-900 hover:opacity-90">About me</Link>}
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {featured.map((p) => (
