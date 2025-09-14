@@ -58,9 +58,9 @@ export default function AboutPage() {
         <div className="flex flex-wrap gap-3 items-center">
           <Link href="https://github.com/smtran8" className="btn">GitHub</Link>
           <Link href="https://www.linkedin.com/in/msontran/" className="btn">LinkedIn</Link>
-          <Link href="tel:3527096136" className="btn bg-gray-900">Call</Link>
           <Link href="/resume.pdf" className="btn" prefetch={false}>Download Résumé</Link>
         </div>
+        <p className="text-gray-700">Phone Number: 3527096136</p>
         <p className="text-gray-700">
           Email: <span className="[unicode-bidi:bidi-override] [direction:rtl]">ude.lfu@nart.ms</span>
         </p>
