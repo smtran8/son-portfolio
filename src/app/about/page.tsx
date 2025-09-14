@@ -4,14 +4,24 @@ import Image from "next/image";
 export default function AboutPage() {
   return (
     <div className="space-y-8">
-      <header className="space-y-3">
+      <header className="space-y-3 relative">
         <h1 className="text-2xl font-semibold">About</h1>
+        {/* Desktop: place avatar entirely in the left gutter */}
+        <Image
+          src="/profile.jpg"
+          alt="Portrait of Son Tran"
+          width={112}
+          height={112}
+          className="hidden sm:block absolute left-0 -translate-x-full top-0 rounded-full border border-gray-200"
+          priority
+        />
+        {/* Mobile: show avatar inline above text */}
         <Image
           src="/profile.jpg"
           alt="Portrait of Son Tran"
           width={96}
           height={96}
-          className="rounded-full border border-gray-200"
+          className="sm:hidden rounded-full border border-gray-200"
           priority
         />
         <p className="text-gray-700 max-w-2xl">
