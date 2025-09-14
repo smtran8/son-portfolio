@@ -3,8 +3,10 @@ import type { Project } from "@/data/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
   const href = project.links.repo && project.links.repo.length > 0 ? project.links.repo : "/projects";
-  return (
-    <Link href={href} className="card block p-5">
+  const isExternal = /^https?:\/\//.test(href);
+
+  const content = (
+    <>
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-base font-semibold">{project.title}</h3>
         <span className="text-xs text-gray-500">{project.year}</span>
@@ -24,6 +26,20 @@ export function ProjectCard({ project }: { project: Project }) {
           ))}
         </ul>
       )}
+    </>
+  );
+
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="card block p-5">
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className="card block p-5" prefetch={false}>
+      {content}
     </Link>
   );
 }
