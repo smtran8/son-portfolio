@@ -6,19 +6,17 @@ export default function AboutPage() {
     <div className="space-y-8">
       <header className="space-y-3">
         <h1 className="text-2xl font-semibold">About</h1>
-        <div className="grid grid-cols-[auto,1fr] items-start gap-4">
-          <Image
-            src="/profile.jpg"
-            alt="Portrait of Son Tran"
-            width={96}
-            height={96}
-            className="rounded-full border border-gray-200"
-            priority
-          />
-          <p className="text-gray-700 max-w-2xl">
-            I’m a data-driven builder who enjoys turning messy real-world signals into clean systems and useful products. I’ve shipped analytics pipelines, LLM-powered reporting, forecasting tools, and UI that people actually use.
-          </p>
-        </div>
+        <Image
+          src="/profile.jpg"
+          alt="Portrait of Son Tran"
+          width={96}
+          height={96}
+          className="rounded-full border border-gray-200"
+          priority
+        />
+        <p className="text-gray-700 max-w-2xl">
+          I’m a data-driven builder who enjoys turning messy real-world signals into clean systems and useful products. I’ve shipped analytics pipelines, LLM-powered reporting, forecasting tools, and UI that people actually use.
+        </p>
       </header>
 
       <section className="space-y-1">
