@@ -7,7 +7,7 @@ export default function AboutPage() {
       <header className="space-y-3">
         <div className="flex items-start gap-4">
           <Image
-            src="/profile.svg"
+            src="/profile.jpg"
             alt="Portrait of Son Tran"
             width={96}
             height={96}
