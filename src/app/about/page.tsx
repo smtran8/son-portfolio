@@ -10,8 +10,8 @@ export default function AboutPage() {
         <Image
           src="/profile.jpg"
           alt="Portrait of Son Tran"
-          width={112}
-          height={112}
+          width={144}
+          height={144}
           className="hidden sm:block absolute left-0 -translate-x-[130%] md:-translate-x-[150%] top-0 rounded-full border border-gray-200"
           priority
         />
