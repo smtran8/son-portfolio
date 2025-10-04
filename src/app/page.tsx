@@ -12,6 +12,7 @@ export default function Home() {
   const featured = PROJECTS.slice(0, 3);
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [projectsRef, projectsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [activitiesRef, activitiesInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <div className="space-y-20 relative">
@@ -142,6 +143,152 @@ export default function Home() {
           </div>
         </Section>
       </motion.div>
+
+      {/* Activities Section */}
+      <motion.section
+        ref={activitiesRef}
+        initial={{ opacity: 0, y: 30 }}
+        animate={activitiesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.8 }}
+        className="space-y-16"
+      >
+        <div className="text-center space-y-4">
+          <h2 className="text-4xl md:text-5xl font-bold section-title">Activities & Involvement</h2>
+          <p className="text-lg text-[rgb(var(--muted-foreground))] max-w-2xl mx-auto">
+            Here are some of the exciting competitions and organizations I've been part of
+          </p>
+        </div>
+
+        {/* ShellHacks 2025 */}
+        <div className="grid lg:grid-cols-8 gap-12 items-center">
+          {/* Images */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={activitiesInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5"
+          >
+            <div className="grid grid-cols-2 gap-6">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={activitiesInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="relative aspect-[4/5] overflow-hidden rounded-xl"
+              >
+                <Image
+                  src="/ShellHacks_1.jpg"
+                  alt="ShellHacks 2025 - Main event"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={activitiesInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="relative aspect-[4/5] overflow-hidden rounded-xl"
+              >
+                <Image
+                  src="/ShellHacks_3.jpg"
+                  alt="ShellHacks 2025 - Presentation"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={activitiesInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="lg:col-span-3 space-y-6"
+          >
+            <div className="card-3d p-8">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-medium text-[--accent] bg-[--accent]/10 px-3 py-1 rounded-full">
+                    Hackathon
+                  </span>
+                  <span className="text-sm text-[rgb(var(--muted-foreground))]">
+                    September 26th - 28th, 2025
+                  </span>
+                </div>
+                
+                <h3 className="text-3xl font-bold text-[rgb(var(--foreground))]">
+                  ShellHacks 2025
+                </h3>
+                
+                <p className="text-lg text-[rgb(var(--foreground))] leading-relaxed">
+                  Over September 26th to 28th, we created a dynamic project called DiegoAI. This project helps brokers rank shippers by on-time delivery with automated email outreach and prospect filtering.
+                </p>
+                
+                <div className="pt-4">
+                  <span className="text-sm text-[rgb(var(--muted-foreground))]">
+                    Role: <span className="font-medium text-[--accent]">AI/ML Engineer</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* DataFest 2025 */}
+        <div className="grid lg:grid-cols-8 gap-12 items-center">
+          {/* Images */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={activitiesInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5"
+          >
+            <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
+              <Image
+                src="/Datafest_1.jpg"
+                alt="DataFest 2025 - Data analysis competition"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
+
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={activitiesInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="lg:col-span-3 space-y-6"
+          >
+            <div className="card-3d p-8">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-medium text-[--accent] bg-[--accent]/10 px-3 py-1 rounded-full">
+                    Data Competition
+                  </span>
+                  <span className="text-sm text-[rgb(var(--muted-foreground))]">
+                    March 28th - 30th, 2025
+                  </span>
+                </div>
+                
+                <h3 className="text-3xl font-bold text-[rgb(var(--foreground))]">
+                  DataFest 2025
+                </h3>
+                
+                <p className="text-lg text-[rgb(var(--foreground))] leading-relaxed">
+                  Participated in the American Statistical Association's DataFest at UF, where we used data to tackle real estate challenges post Covid. This 48-hour competition challenged teams to extract meaningful insights from complex datasets and present findings to a panel of judges.
+                </p>
+                
+                <div className="pt-4">
+                  <span className="text-sm text-[rgb(var(--muted-foreground))]">
+                    Role: <span className="font-medium text-[--accent]">Data Analyst</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
     </div>
   );
 }
