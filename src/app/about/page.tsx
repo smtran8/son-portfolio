@@ -378,7 +378,6 @@ export default function AboutPage() {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     className="btn-black"
-                    prefetch={false}
                   >
                     Download Résumé
                   </motion.a>
