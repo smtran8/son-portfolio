@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 type Props = {
   label: string;
   active?: boolean;
@@ -6,18 +10,22 @@ type Props = {
 
 export function TagChip({ label, active, onClick }: Props) {
   return (
-    <button
+    <motion.button
       type="button"
       onClick={onClick}
-      className={`rounded-full border px-3 py-1 text-sm transition ${
+      whileHover={{ scale: 1.05, y: -2 }}
+      whileTap={{ scale: 0.95 }}
+      className={`rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200 ${
         active
-          ? "bg-[--accent] text-white border-[--accent]"
-          : "border-gray-300 hover:border-gray-400"
+          ? label === "All" 
+            ? "bg-[--accent] text-black border-[--accent] shadow-lg shadow-blue-500/30"
+            : "bg-[--accent] text-white border-[--accent] shadow-lg shadow-blue-500/30"
+          : "border-[rgb(var(--card-border))] bg-[rgb(var(--muted))] text-[rgb(var(--foreground))] hover:bg-[--accent] hover:text-white hover:border-[--accent] hover:shadow-lg hover:shadow-blue-500/30"
       }`}
       aria-pressed={active}
     >
       {label}
-    </button>
+    </motion.button>
   );
 }
 

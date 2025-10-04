@@ -1,27 +1,237 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   --font-sans: var(--font-mont);
 }
 
 :root {
-  --accent: #2563eb; /* blue-600 */
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --gradient-from: #3b82f6;
+  --gradient-via: #8b5cf6;
+  --gradient-to: #06b6d4;
+  
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+  --card: 255 255 255;
+  --card-border: 226 232 240;
+  --muted: 248 250 252;
+  --muted-foreground: 100 116 139;
+}
+
+.dark {
+  --accent: #60a5fa;
+  --accent-hover: #3b82f6;
+  --gradient-from: #60a5fa;
+  --gradient-via: #a78bfa;
+  --gradient-to: #22d3ee;
+  
+  --background: 15 23 42;
+  --foreground: 248 250 252;
+  --card: 30 41 59;
+  --card-border: 51 65 85;
+  --muted: 30 41 59;
+  --muted-foreground: 148 163 184;
 }
 
 @layer base {
-  html, body {
-    @apply bg-white text-gray-900 antialiased;
+  * {
+    @apply border-[rgb(var(--card-border))];
   }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))] antialiased transition-colors duration-300;
+  }
+  
   a {
-    @apply underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--accent] focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-sm;
+    @apply underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--accent] focus-visible:ring-offset-2 rounded-sm transition-colors;
   }
 }
 
-/* Utilities */
+/* Modern animated gradient background */
+.gradient-bg {
+  background: linear-gradient(
+    135deg,
+    var(--gradient-from) 0%,
+    var(--gradient-via) 50%,
+    var(--gradient-to) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Static mesh gradient - Modern Blue & Purple */
+.mesh-gradient {
+  background: 
+    radial-gradient(at 0% 0%, rgb(59 130 246 / 0.3) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgb(139 92 246 / 0.3) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgb(6 182 212 / 0.3) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgb(59 130 246 / 0.3) 0px, transparent 50%);
+}
+
+.dark .mesh-gradient {
+  background: 
+    radial-gradient(at 0% 0%, rgb(96 165 250 / 0.2) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgb(167 139 250 / 0.2) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgb(34 211 238 / 0.2) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgb(96 165 250 / 0.2) 0px, transparent 50%);
+}
+
+@keyframes mesh-move {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+}
+
+/* Shine effect on hover */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.shine:hover::before {
+  left: 100%;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse glow - Modern Blue & Purple */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Modern utilities */
 .btn {
-  @apply inline-flex items-center justify-center rounded-full bg-[--accent] px-4 py-2 text-white text-sm font-medium hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--accent] focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[--accent] px-6 py-3 text-white text-sm font-medium hover:bg-[--accent-hover] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--accent] focus-visible:ring-offset-2 transition-all duration-200 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-medium text-[rgb(var(--foreground))] hover:bg-[rgb(var(--muted))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--accent] transition-all duration-200;
+}
+
+.btn-black {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-black px-6 py-3 text-white text-sm font-medium hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 transition-all duration-200 shadow-lg shadow-black/30 hover:shadow-xl hover:shadow-black/40 hover:-translate-y-0.5;
+}
+
+.btn-sm {
+  @apply px-4 py-2 text-xs;
 }
 
 .card {
-  @apply rounded-2xl border border-gray-200 bg-white shadow-none transition-shadow hover:shadow-sm;
+  @apply rounded-2xl border border-[rgb(var(--card-border))] bg-[rgb(var(--card))] p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+.card-3d {
+  @apply rounded-2xl border border-[rgb(var(--card-border))] bg-[rgb(var(--card))] p-6 shadow-sm transition-all duration-300 hover:shadow-xl;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-8px) rotateX(2deg);
+  box-shadow: 0 20px 50px -10px rgba(59, 130, 246, 0.3);
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold bg-gradient-to-r from-[var(--gradient-from)] via-[var(--gradient-via)] to-[var(--gradient-to)] bg-clip-text text-transparent;
+}
+
+/* Command palette styles */
+.cmdk-overlay {
+  @apply fixed inset-0 z-50 bg-black/50 backdrop-blur-sm;
+}
+
+.cmdk-dialog {
+  @apply fixed top-[50%] left-[50%] z-50 w-full max-w-2xl translate-x-[-50%] translate-y-[-50%] rounded-2xl border bg-[rgb(var(--card))] shadow-2xl;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

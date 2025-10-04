@@ -1,7 +1,7 @@
 export type Project = {
   title: string;
   slug: string;
-  year: number;
+  year: string;
   tags: string[];
   summary: string;
   metrics: string[];
@@ -13,9 +13,34 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    title: "DiegoAI - Email Automation AI",
+    slug: "diegoai-email-automation",
+    year: "Sep 2025",
+    tags: ["AI", "Python", "SQL", "SWE"],
+    summary:
+      "AI tool for brokers that ranks shippers by on-time delivery with automated email outreach and prospect filtering.",
+    metrics: [
+      "Integrated Gemini API (2.5-pro) with PDF parsing for business data extraction",
+      "60% reduction in manual work, producing 1,000+ company target list",
+      "2,500+ clients across 15+ industries with 95% accuracy",
+      "85% reduction in manual tasks for 500+ monthly runs",
+    ],
+    stack: [
+      "Python",
+      "Gemini API",
+      "Power BI",
+      "Supabase",
+      "SQL",
+      "PDF Processing",
+    ],
+    role: "AI/ML Engineer",
+    links: { repo: "" },
+    cover: "/images/projects/diegoai-cover.png",
+  },
+  {
     title: "CivicOps-311: SLA Risk Prediction",
     slug: "civicops-311-sla-risk",
-    year: 2025,
+    year: "Aug 2025",
     tags: ["Data", "ML", "SWE", "Python", "SQL"],
     summary:
       "City 311 analytics: warehouse + features + SLA-breach prediction with a simple scoring service.",
@@ -41,7 +66,7 @@ export const PROJECTS: Project[] = [
   {
     title: "Alpha Signal Development",
     slug: "alpha-signal-development",
-    year: 2025,
+    year: "May 2025",
     tags: ["Quant", "Data", "Python"],
     summary:
       "Research and backtesting of three equity alpha signals with risk neutralization.",
@@ -59,7 +84,7 @@ export const PROJECTS: Project[] = [
   {
     title: "Smart Schedule Planner",
     slug: "smart-schedule-planner",
-    year: 2025,
+    year: "Apr 2025",
     tags: ["Data", "SWE", "Python"],
     summary:
       "Predictive task planner with from-scratch linear regression and probabilistic outputs.",
