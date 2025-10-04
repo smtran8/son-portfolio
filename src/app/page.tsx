@@ -224,10 +224,24 @@ export default function Home() {
                   Over September 26th to 28th, we created a dynamic project called DiegoAI. This project helps brokers rank shippers by on-time delivery with automated email outreach and prospect filtering.
                 </p>
                 
-                <div className="pt-4">
+                <div className="pt-4 space-y-4">
                   <span className="text-sm text-[rgb(var(--muted-foreground))]">
                     Role: <span className="font-medium text-[--accent]">AI/ML Engineer</span>
                   </span>
+                  
+                  {/* Demo Video */}
+                  <div className="space-y-3">
+                    <h4 className="text-base font-medium text-[rgb(var(--foreground))]">Project Demo</h4>
+                    <div className="relative aspect-video overflow-hidden rounded-lg scale-110">
+                      <iframe
+                        src="https://www.youtube.com/embed/HS-L7btmo_8"
+                        title="DiegoAI - ShellHacks 2025 Demo"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
